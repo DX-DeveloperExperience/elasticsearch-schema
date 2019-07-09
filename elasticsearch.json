@@ -1,0 +1,218 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "properties": {
+    "cluster": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "initial_master_nodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "discovery": {
+      "properties": {
+        "seed_hosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "seed_providers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "type": {
+          "type": "string"
+        },
+        "cluster_formation_warning_timeout": { "type": "string" },
+        "find_peers_interval": { "type": "string" },
+        "probe": {
+          "type": "object",
+          "properties": {
+            "connect_timeout": { "type": "string" },
+            "handshake_timeout": { "type": "string" }
+          }
+        },
+        "request_peers_timeout": {
+          "type": "string"
+        },
+        "seed_resolver": {
+          "type": "object",
+          "properties": {
+            "max_concurrent_resolvers": { "type": "integer" },
+            "timeout": { "type": "string" }
+          }
+        },
+        "auto_shrink_voting_configuration": {
+          "type": "string"
+        },
+        "election": {
+          "type": "object",
+          "properties": {
+            "back_off_time": { "type": "string" },
+            "duration": { "type": "string" },
+            "initial_timeout": { "type": "string" },
+            "max_timeout": { "type": "string" }
+          }
+        },
+        "follower_lag": {
+          "type": "object",
+          "properties": {
+            "timeout": {
+              "type": "string"
+            }
+          }
+        },
+        "join": {
+          "type": "object",
+          "properties": {
+            "timeout": {
+              "type": "string"
+            }
+          }
+        },
+        "max_voting_config_exclusions": {
+          "type": "number"
+        },
+        "publish": {
+          "type": "object",
+          "properties": {
+            "timeout": {
+              "type": "string"
+            }
+          }
+        },
+        "no_master_block": {
+          "enum": ["all", "write"]
+        },
+        "fault_detection": {
+          "type": "object",
+          "properties": {
+            "follower_check.interval": { "type": "string" },
+            "follower_check.timeout": { "type": "string" },
+            "follower_check.retry_count": { "type": "number" },
+            "leader_check": {
+              "type": "object",
+              "properties": {
+                "interval": { "type": "string" },
+                "timeout": { "type": "string" },
+                "retry_count": { "type": "number" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "network": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string"
+        }
+      }
+    },
+    "node": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "path": {
+      "type": "object",
+      "properties": {
+        "logs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "xpack": {
+      "type": "object",
+      "properties": {
+        "monitoring": {
+          "type": "object",
+          "properties": {
+            "collection": {
+              "type": "object",
+              "properties": {
+                "indices": {
+                  "type": "string"
+                }
+              }
+            },
+            "exporters": {
+              "type": "object",
+              "patternProperties": {
+                ".*": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "enum": ["http"]
+                    },
+                    "host": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "auth": {
+                      "type": "object",
+                      "properties": {
+                        "username": {
+                          "type": "string"
+                        },
+                        "password": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "ssl": {
+                      "type": "object",
+                      "properties": {
+                        "truststore": {
+                          "type": "object",
+                          "properties": {
+                            "path": {
+                              "type": "string"
+                            },
+                            "password": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "certificate_authorities": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
