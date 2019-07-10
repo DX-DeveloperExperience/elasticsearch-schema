@@ -1,6 +1,22 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "properties": {
+    "action": {
+      "type": "object",
+      "properties": {
+        "destructive_requires_name": {
+          "type": "boolean"
+        }
+      }
+    },
+    "bootstrap": {
+      "type": "object",
+      "properties": {
+        "memory_lock": {
+          "type": "boolean"
+        }
+      }
+    },
     "cluster": {
       "type": "object",
       "properties": {
@@ -108,6 +124,22 @@
               }
             }
           }
+        }
+      }
+    },
+    "gateway": {
+      "type": "object",
+      "properties": {
+        "recover_after_nodes": {
+          "type": "integer"
+        }
+      }
+    },
+    "http": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "integer"
         }
       }
     },
