@@ -156,6 +156,9 @@
       "properties": {
         "name": {
           "type": "string"
+        },
+        "ml": {
+          "type": "boolean"
         }
       }
     },
@@ -241,6 +244,44 @@
                   }
                 }
               }
+            }
+          }
+        },
+        "ml": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "max_machine_memory_percent": {
+              "type": "number",
+              "default": 30
+            },
+            "max_model_memory_limit": {
+              "type": "number"
+            },
+            "max_open_jobs": {
+              "type": "number",
+              "default": 20
+            },
+            "node_concurrent_job_allocations": {
+              "type": "number",
+              "default": 2
+            },
+            "enable_config_migration": {
+              "type": "boolean"
+            },
+            "max_anomaly_records": {
+              "type": "string",
+              "default": 500
+            },
+            "max_lazy_ml_nodes": {
+              "type": "number",
+              "default": 0
+            },
+            "process_connect_timeout": {
+              "type": "string",
+              "default": "10s"
             }
           }
         }
